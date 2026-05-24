@@ -11,7 +11,7 @@ def calcular_media(notas: list) -> float:
     if not notas:
         return 0.0
     return sum(notas) / len(notas)
-
+ 
 
 def validar_email(email: str) -> bool:
     if not email or '@' not in email:
