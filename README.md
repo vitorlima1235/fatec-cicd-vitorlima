@@ -59,12 +59,8 @@ push/pull_request/workflow_dispatch
 - ✅ **Job 3 (Deploy)** → PASSOU
 
 ### Evidência
-Commit: `1cea720` - "fix: corrige SQL Injection com query parametrizada"
+<img width="1428" height="266" alt="{9E88A740-F39A-4D99-88B6-D1FF4900C593}" src="https://github.com/user-attachments/assets/89329a07-6fb9-4908-a56c-2d4fe7d97a52" />
 
-Código corrigido com query parametrizada:
-```python
-cursor.execute("SELECT * FROM users WHERE id=?", (user_id,))
-```
 
 Acesse: https://github.com/vitorlima1235/fatec-cicd-vitorlima/actions
 
