@@ -69,11 +69,7 @@ Acesse: https://github.com/vitorlima1235/fatec-cicd-vitorlima/actions
 
 ## ❌ Teste 2: Código Vulnerável → Job 1 Falha
 
-### Código Vulnerável Introduzido
-```python
-# ⚠️ SQL INJECTION - NUNCA FAÇA ISSO!
-cursor.execute(f"SELECT * FROM users WHERE id={user_id}")
-```
+<img width="1192" height="268" alt="image" src="https://github.com/user-attachments/assets/88dcb479-542b-4fd3-841a-06cd1985224e" />
 
 ### Resultado Observado
 - ❌ **Job 1 (CodeQL)** → **FALHOU** (detectou vulnerabilidade)
@@ -89,11 +85,8 @@ Tipo: **SQL Injection via string formatting**
 
 ## ✅ Teste 3: Correção Aplicada → Pipeline Verde Novamente
 
-### Código Corrigido
-```python
-# ✅ SEGURO - Query parametrizada
-cursor.execute("SELECT * FROM users WHERE id=?", (user_id,))
-```
+<img width="1093" height="282" alt="{E13AB6C6-E2A7-400D-B30E-D84CB20D7C90}" src="https://github.com/user-attachments/assets/659b4fb0-4230-4f19-86e5-937f509b3e07" />
+
 
 ### Resultado
 - ✅ **Job 1 (CodeQL)** → PASSOU (nenhuma vulnerabilidade)
