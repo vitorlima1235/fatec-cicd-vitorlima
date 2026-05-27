@@ -30,27 +30,6 @@ fatec-cicd-vitorlima/
 
 ## 🚀 Pipeline CI/CD
 
-### Jobs Executados
-
-```
-push/pull_request/workflow_dispatch
-    │
-    ├─→ JOB 1: 🔒 Análise CodeQL
-    │   ├─ Inicializa CodeQL
-    │   ├─ Executa análise de segurança
-    │   └─ Gera relatório de vulnerabilidades
-    │
-    ├─→ JOB 2: 🧪 Testes Automatizados (aguarda Job 1 ✅)
-    │   ├─ Executa pytest
-    │   ├─ Verifica qualidade com flake8
-    │   └─ Relatório de testes
-    │
-    └─→ JOB 3: 🚀 Deploy para Stage (aguarda Job 1 e 2 ✅)
-        ├─ Faz checkout
-        ├─ Simula deploy
-        └─ Marca como sucesso
-```
-
 ## 📊 Teste 1: Código Seguro → ✅ Todos os Jobs Verdes
 
 ### Resultado Esperado
@@ -61,8 +40,6 @@ push/pull_request/workflow_dispatch
 ### Evidência
 <img width="1278" height="261" alt="image" src="https://github.com/user-attachments/assets/b7995e1c-ebd1-4c50-9141-91e6b7776fd3" />
 
-Acesse: https://github.com/vitorlima1235/fatec-cicd-vitorlima/actions
-
 ## ❌ Teste 2: Código Vulnerável → Job 1 Falha
 
 <img width="1192" height="268" alt="image" src="https://github.com/user-attachments/assets/88dcb479-542b-4fd3-841a-06cd1985224e" />
@@ -71,13 +48,6 @@ Acesse: https://github.com/vitorlima1235/fatec-cicd-vitorlima/actions
 - ❌ **Job 1 (CodeQL)** → **FALHOU** (detectou vulnerabilidade)
 - ⬜ **Job 2 (Testes)** → NÃO EXECUTOU (bloqueado pela falha)
 - ⬜ **Job 3 (Deploy)** → NÃO EXECUTOU (bloqueado pela falha)
-
-### Evidência
-Commit: `f3d34b5` - "test: código vulnerável - SQL Injection"
-
-Alerta de segurança detectado em: **Security → Code scanning alerts**
-
-Tipo: **SQL Injection via string formatting**
 
 ## ✅ Teste 3: Correção Aplicada → Pipeline Verde Novamente
 
@@ -89,32 +59,6 @@ Tipo: **SQL Injection via string formatting**
 - ✅ **Job 2 (Testes)** → PASSOU (testes executados com sucesso)
 - ✅ **Job 3 (Deploy)** → PASSOU (deployment concluído)
 
-## 📝 Histórico de Commits
-
-```bash
-f8c34f8 - chore: melhora configuração CodeQL - adiciona paths-ignore adicionais
-1cea720 - fix: corrige SQL Injection com query parametrizada
-f3d34b5 - test: código vulnerável - SQL Injection
-fb49f44 - fix: corrige sintaxe YAML do workflow CI/CD
-2eaceb1 - feat: pipeline CI/CD inicial com código seguro
-```
-
-## 🧪 Executar Testes Localmente
-
-```bash
-# Instalar dependências
-pip install -r requirements.txt
-
-# Executar testes
-pytest tests/ -v
-
-# Verificar qualidade do código
-flake8 . --max-line-length=120 --exclude=venv
-
-# Análise de segurança (local)
-bandit -r . -ll
-```
-
 ## 🔐 Configurações de Segurança
 
 ### GitHub Advanced Security
@@ -122,34 +66,7 @@ bandit -r . -ll
 - ✅ Code scanning alerts ativo
 - ✅ Dependabot habilitado
 
-### Environments
-- ✅ Environment "stage" criado
-- ✅ Protection rules configuradas
 
-## 📦 Testes Inclusos
-
-### TestSaudacao
-```python
-def test_saudacao_nome_valido(self):
-    resultado = saudacao("Maria")
-    assert "Maria" in resultado
-
-def test_saudacao_tipo_invalido(self):
-    with pytest.raises(TypeError):
-        saudacao(123)
-```
-
-### TestCalcularMedia
-```python
-def test_media_simples(self):
-    assert calcular_media([10, 8, 6]) == 8.0
-
-def test_lista_vazia(self):
-    with pytest.raises(ValueError):
-        calcular_media([])
-```
-
-**Resultado:** ✅ 4/4 testes passando
 
 ## 🎯 Aprendizados Principais
 
